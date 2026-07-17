@@ -1926,5 +1926,21 @@
     initializeGameState();
     resizeBoardToContainer();
   </script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("./service-worker.js")
+        .then(() => {
+          console.log("서비스 워커 등록 완료");
+        })
+        .catch((error) => {
+          console.error("서비스 워커 등록 실패:", error);
+        });
+    });
+  }
+</script>
+  
 </body>
 </html>
